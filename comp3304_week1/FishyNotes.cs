@@ -16,12 +16,13 @@ namespace comp3304_week1
     public partial class FishyNotes : Form
     {
         // DECLARATION of _newNote of type Form
-        private Form _newNote;
-        
+        //private Form _newNote;
+        private IList<Form> _noteList;
 
-        public FishyNotes()
+        public FishyNotes(IList<Form> noteList)
         {
             InitializeComponent();
+            _noteList = noteList;
         }
 
         /// <summary>
@@ -41,10 +42,14 @@ namespace comp3304_week1
         /// <param name="e"></param>
         private void AddNote_Click(object sender, EventArgs e)
         {
-            if (_newNote == null) 
+                
+                //_newNote = new FishyNote();
+                //_newNote.Show();
+                _noteList.Add(new FishyNote());
+
+            foreach(FishyNote X in _noteList)
             {
-                _newNote = new FishyNote();
-                _newNote.Show();
+                X.Show();
             }
         }
     }

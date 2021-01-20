@@ -16,7 +16,8 @@ namespace comp3304_week1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FishyNotes());
+            //Application.Run(new Controller());
+            Controller _controller = new Controller();
         }
     }
 }

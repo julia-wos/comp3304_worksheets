@@ -63,7 +63,7 @@ namespace comp3304_week1
             this.CloseNote.Name = "CloseNote";
             this.CloseNote.Size = new System.Drawing.Size(75, 50);
             this.CloseNote.TabIndex = 2;
-            this.CloseNote.Text = "Close Note";
+            this.CloseNote.Text = "NOTE";
             this.CloseNote.UseVisualStyleBackColor = false;
             this.CloseNote.Click += new System.EventHandler(this.CloseNote_Click);
             // 
@@ -80,6 +80,9 @@ namespace comp3304_week1
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FishyNote";
             this.Text = "FishyNote";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.FishyNote_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.FishyNote_MouseMove);
+            this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.FishyNote_MouseUp);
             this.ResumeLayout(false);
             this.PerformLayout();
 
