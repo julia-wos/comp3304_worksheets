@@ -29,24 +29,26 @@ namespace comp3304_week1
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Note = new System.Windows.Forms.TextBox();
             this.Delete = new System.Windows.Forms.Button();
             this.CloseNote = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // Note
             // 
-            this.textBox1.Location = new System.Drawing.Point(33, 43);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(494, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "Enter your note text here...";
+            this.Note.Location = new System.Drawing.Point(33, 70);
+            this.Note.Multiline = true;
+            this.Note.Name = "Note";
+            this.Note.Size = new System.Drawing.Size(402, 400);
+            this.Note.TabIndex = 0;
+            this.Note.Text = "Enter your note text here...";
+            this.Note.Click += new System.EventHandler(this.Note_Clicked);
             // 
             // Delete
             // 
             this.Delete.BackColor = System.Drawing.Color.Maroon;
             this.Delete.ForeColor = System.Drawing.Color.FloralWhite;
-            this.Delete.Location = new System.Drawing.Point(519, 14);
+            this.Delete.Location = new System.Drawing.Point(400, 14);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(21, 23);
             this.Delete.TabIndex = 1;
@@ -57,9 +59,9 @@ namespace comp3304_week1
             // CloseNote
             // 
             this.CloseNote.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.CloseNote.Location = new System.Drawing.Point(33, 14);
+            this.CloseNote.Location = new System.Drawing.Point(33, 12);
             this.CloseNote.Name = "CloseNote";
-            this.CloseNote.Size = new System.Drawing.Size(75, 23);
+            this.CloseNote.Size = new System.Drawing.Size(75, 50);
             this.CloseNote.TabIndex = 2;
             this.CloseNote.Text = "Close Note";
             this.CloseNote.UseVisualStyleBackColor = false;
@@ -70,11 +72,11 @@ namespace comp3304_week1
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Coral;
-            this.ClientSize = new System.Drawing.Size(578, 450);
+            this.ClientSize = new System.Drawing.Size(500, 500);
             this.ControlBox = false;
             this.Controls.Add(this.CloseNote);
             this.Controls.Add(this.Delete);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Note);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FishyNote";
             this.Text = "FishyNote";
@@ -85,7 +87,7 @@ namespace comp3304_week1
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Note;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button CloseNote;
     }
