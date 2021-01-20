@@ -45,7 +45,7 @@ namespace comp3304_week1
             {
                 _newNote = new FishyNote();
                 _newNote.Show();
-            }
+            }  
         }
     }
 }
