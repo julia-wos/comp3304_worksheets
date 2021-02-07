@@ -14,17 +14,30 @@ namespace comp3304_week1
     {
         private int _noteHight;
 
-        
-        public FishyNote()
+        private int _fishyNoteID;
+
+        private RemoveDelegate _deleteMe;
+
+
+
+
+
+        public FishyNote(int fishyNoteID, RemoveDelegate deleteMe)
         {
             InitializeComponent();
+            _fishyNoteID = fishyNoteID;
+
+            _deleteMe += deleteMe;
+            
         }
 
-        
+
+
+
         private void Delete_Click(object sender, EventArgs e)
         {
             this.Dispose();
-
+            this._deleteMe(_fishyNoteID);
         }
 
        

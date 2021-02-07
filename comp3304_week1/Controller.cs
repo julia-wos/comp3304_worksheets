@@ -9,7 +9,7 @@ namespace comp3304_week1
 {
     class Controller
     {
-        private IList<Form> fishyNoteList = new List<Form>();
+        private IDictionary<int, Form> fishyNoteList = new Dictionary<int, Form>();
 
         public Controller()
         {

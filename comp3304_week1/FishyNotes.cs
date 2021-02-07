@@ -17,13 +17,29 @@ namespace comp3304_week1
     {
         // DECLARATION of _newNote of type Form
         //private Form _newNote;
-        private IList<Form> _noteList;
+        private IDictionary<int, Form> _noteForms;
 
-        public FishyNotes(IList<Form> noteList)
+        private int _fishyNoteID = 1;
+
+        private Form _newNote;
+
+        
+
+       
+
+        public FishyNotes(IDictionary<int, Form> noteForms)
         {
             InitializeComponent();
-            _noteList = noteList;
+            _noteForms = noteForms;
         }
+
+
+        public void Remove(int id) 
+        {
+            _noteForms.Remove(id);
+        }
+
+        
 
         /// <summary>
         /// This methos is resposible for loading the fishy notes form
@@ -42,15 +58,16 @@ namespace comp3304_week1
         /// <param name="e"></param>
         private void AddNote_Click(object sender, EventArgs e)
         {
-                
-                //_newNote = new FishyNote();
-                //_newNote.Show();
-                _noteList.Add(new FishyNote());
+            
+            _newNote = new FishyNote(_fishyNoteID, Remove);
+            //_newNote.Show();
 
-            foreach(FishyNote X in _noteList)
-            {
-                X.Show();
-            }
+            _noteForms.Add(_fishyNoteID, _newNote);
+
+            _noteForms[_fishyNoteID].Show();
+            _fishyNoteID++;
         }
+
+
     }
 }
