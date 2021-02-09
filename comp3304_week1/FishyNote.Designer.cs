@@ -42,7 +42,8 @@ namespace comp3304_week1
             this.Note.Size = new System.Drawing.Size(402, 400);
             this.Note.TabIndex = 0;
             this.Note.Text = "Enter your note text here...";
-            this.Note.Click += new System.EventHandler(this.Note_Clicked);
+            this.Note.Click += new System.EventHandler(this.NoteTextBox_Click);
+            this.Note.TextChanged += new System.EventHandler(this.NoteText_Change);
             // 
             // Delete
             // 

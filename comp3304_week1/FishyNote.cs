@@ -16,19 +16,33 @@ namespace comp3304_week1
 
         private int _fishyNoteID;
 
+        private string _newText;
+
         private RemoveDelegate _deleteMe;
 
+        private TextUpdate _noteTextUpdate;
+
+        private RetriveText _retriveNoteText;
+
+        private Boolean _expanded = true;
+
+        private Size _expandSize = new Size(500, 500);
+
+        private Size _minimiseSize = new Size(500, 70);
 
 
 
 
-        public FishyNote(int fishyNoteID, RemoveDelegate deleteMe)
+
+        public FishyNote(int fishyNoteID, RemoveDelegate deleteMe, TextUpdate noteTextUpdate, RetriveText retriveNoteText)
         {
             InitializeComponent();
             _fishyNoteID = fishyNoteID;
 
             _deleteMe += deleteMe;
-            
+            _noteTextUpdate += noteTextUpdate;
+            _retriveNoteText += retriveNoteText;
+
         }
 
 
@@ -44,25 +58,44 @@ namespace comp3304_week1
 
         private void CloseNote_Click(object sender, EventArgs e)
         {
-            _noteHight = Size.Height;
-
-            if (_noteHight == 500)
+            if (_expanded)
             {
-                Size = new Size(500,70);
+                this.ClientSize = _minimiseSize;
+                _expanded = false;
             }
-            else
+            else 
             {
-                Size = new Size(500,500);
+                this.ClientSize = _expandSize;
+                _expanded = true;
             }
-
 
         }
 
+        private void NoteTextBox_Click(object sender, EventArgs e) 
+        {
+            this.Note.Text = _retriveNoteText(_fishyNoteID);
+        }
+
+        private void NoteText_Change(object sender, EventArgs e) 
+        {
+            _newText = this.Note.Text;
+
+            this._noteTextUpdate(_fishyNoteID, _newText);
+        }
+
+        /*
         private void Note_Clicked(object sender, EventArgs e)
         {
-            this.Note.Text = "";
-        }
+            if (this.Note.Text == "Enter your note text here...")
+            { 
+                this.Note.Text = "";
+            }
 
+            _newText = this.Note.Text;
+
+            this._noteTextUpdate(_fishyNoteID, _newText);
+        }
+        */
 
         #region Code Snippet: makes this borderless window movable
         // Modified from https://stackoverflow.com/a/24561946 and attributed to user jay_t55

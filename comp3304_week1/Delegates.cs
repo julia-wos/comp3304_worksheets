@@ -9,5 +9,9 @@ namespace comp3304_week1
 {
 
     public delegate void RemoveDelegate(int id);
+
+    public delegate void TextUpdate(int id, string newText);
+
+    public delegate String RetriveText(int id);
     
 }

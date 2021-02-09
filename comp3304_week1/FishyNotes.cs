@@ -19,24 +19,47 @@ namespace comp3304_week1
         //private Form _newNote;
         private IDictionary<int, Form> _noteForms;
 
-        private int _fishyNoteID = 1;
+        private int _fishyNoteID = 0;
 
         private Form _newNote;
 
-        
+        private INotes _noteData;
 
-       
+        private INoteText _noteTextData;
 
-        public FishyNotes(IDictionary<int, Form> noteForms)
+        //private IDictionary<int, string> _noteTextStorage;
+
+
+        public FishyNotes(IDictionary<int, Form> noteForms, INotes noteData)
         {
             InitializeComponent();
             _noteForms = noteForms;
+            _noteData = noteData;
+            _noteTextData = _noteData as INoteText;
+
+            //_noteTextStorage = new Dictionary<int, string>();
         }
+
+        /*
+        public void UpdateNoteText(int id, string newText) 
+        {
+            _noteTextStorage[id] = newText;           
+
+        }
+        */
+
+        /*
+        public String RetriveNoteText(int id)
+        {
+            return (_noteTextStorage[id]);
+        }
+        */
 
 
         public void Remove(int id) 
         {
-            _noteForms.Remove(id);
+            _noteData.DeleteNoteText(id);
+            _noteForms.Remove(id);            
         }
 
         
@@ -57,14 +80,16 @@ namespace comp3304_week1
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void AddNote_Click(object sender, EventArgs e)
-        {
-            
-            _newNote = new FishyNote(_fishyNoteID, Remove);
-            //_newNote.Show();
+        {            
+            _newNote = new FishyNote(_fishyNoteID, Remove, _noteTextData.UpdateNoteText, _noteTextData.RetriveNoteText);
 
+            //_noteTextStorage.Add(_fishyNoteID, "");
+            _noteData.AddNoteText(_fishyNoteID);
+            
             _noteForms.Add(_fishyNoteID, _newNote);
 
             _noteForms[_fishyNoteID].Show();
+            
             _fishyNoteID++;
         }
 

@@ -7,13 +7,15 @@ using System.Windows.Forms;
 
 namespace comp3304_week1
 {
-    class Controller
+    public class Controller
     {
-        private IDictionary<int, Form> fishyNoteList = new Dictionary<int, Form>();
+        IDictionary<int, Form> fishyNoteList = new Dictionary<int, Form>();
+
+        INotes noteData = new NoteData();
 
         public Controller()
         {
-            Application.Run(new FishyNotes(fishyNoteList));
+            Application.Run(new FishyNotes(fishyNoteList, noteData));
         }
     }
 }
