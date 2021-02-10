@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Controller.cs" />
     <Compile Include="Delegates.cs" />
+    <Compile Include="Factory.cs" />
     <Compile Include="FishyNote.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +61,7 @@
     <Compile Include="FishyNotes.Designer.cs">
       <DependentUpon>FishyNotes.cs</DependentUpon>
     </Compile>
+    <Compile Include="IFactory.cs" />
     <Compile Include="INotes.cs" />
     <Compile Include="INoteText.cs" />
     <Compile Include="NoteData.cs" />

@@ -83,20 +83,6 @@ namespace comp3304_week1
             this._noteTextUpdate(_fishyNoteID, _newText);
         }
 
-        /*
-        private void Note_Clicked(object sender, EventArgs e)
-        {
-            if (this.Note.Text == "Enter your note text here...")
-            { 
-                this.Note.Text = "";
-            }
-
-            _newText = this.Note.Text;
-
-            this._noteTextUpdate(_fishyNoteID, _newText);
-        }
-        */
-
         #region Code Snippet: makes this borderless window movable
         // Modified from https://stackoverflow.com/a/24561946 and attributed to user jay_t55
 

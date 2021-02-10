@@ -15,8 +15,6 @@ namespace comp3304_week1
     /// </summary>
     public partial class FishyNotes : Form
     {
-        // DECLARATION of _newNote of type Form
-        //private Form _newNote;
         private IDictionary<int, Form> _noteForms;
 
         private int _fishyNoteID = 0;
@@ -27,35 +25,20 @@ namespace comp3304_week1
 
         private INoteText _noteTextData;
 
-        //private IDictionary<int, string> _noteTextStorage;
-
-
         public FishyNotes(IDictionary<int, Form> noteForms, INotes noteData)
         {
             InitializeComponent();
             _noteForms = noteForms;
             _noteData = noteData;
             _noteTextData = _noteData as INoteText;
-
-            //_noteTextStorage = new Dictionary<int, string>();
         }
 
-        /*
-        public void UpdateNoteText(int id, string newText) 
-        {
-            _noteTextStorage[id] = newText;           
 
-        }
-        */
-
-        /*
-        public String RetriveNoteText(int id)
-        {
-            return (_noteTextStorage[id]);
-        }
-        */
-
-
+        /// <summary>
+        /// This method is responsible for Removing notes from the Dictionairy 
+        /// based on the unique id/key
+        /// </summary>
+        /// <param name="id"></param>
         public void Remove(int id) 
         {
             _noteData.DeleteNoteText(id);
@@ -75,21 +58,26 @@ namespace comp3304_week1
         }
 
         /// <summary>
-        /// This method is responsible for adding a note after an AddNote button is clicked
+        /// This method is responsible for adding a note and it's data(text)
+        /// after an AddNote button is clicked
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void AddNote_Click(object sender, EventArgs e)
-        {            
+        {
+            //CREATE a new note
             _newNote = new FishyNote(_fishyNoteID, Remove, _noteTextData.UpdateNoteText, _noteTextData.RetriveNoteText);
-
-            //_noteTextStorage.Add(_fishyNoteID, "");
+            
+            //ADD am empty text field to the NoteText dictionary
             _noteData.AddNoteText(_fishyNoteID);
             
+            //ADD a note to the dictionary of notes
             _noteForms.Add(_fishyNoteID, _newNote);
 
+            //display the note
             _noteForms[_fishyNoteID].Show();
             
+            //increment id
             _fishyNoteID++;
         }
 

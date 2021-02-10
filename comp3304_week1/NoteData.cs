@@ -16,6 +16,8 @@ namespace comp3304_week1
             _noteTextStorage = new Dictionary<int, string>();
         }
 
+
+        #region IMPLEMENTATION of INoteText
         public void UpdateNoteText(int id, string newText)
         {
             _noteTextStorage[id] = newText;
@@ -26,7 +28,9 @@ namespace comp3304_week1
         {
             return (_noteTextStorage[id]);
         }
+        #endregion
 
+        #region IMPLEMENTATION of INotes
         public void AddNoteText(int id)
         {
             _noteTextStorage.Add(id, "");
@@ -36,6 +40,7 @@ namespace comp3304_week1
         {
             _noteTextStorage.Remove(id);
         }
+        #endregion
 
     }
 }
